@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import React from "react";
 
-function App() {
+import "./App.css"
+
+export default function App() { const [counteure, setCounteure] = useState(0);
+  const Diminuer = () => {
+    if (counteure >0) {
+      setCounteure(count => count - 1);
+    }
+  };
+  const Augmenter = () => {
+    setCounteure(count => count + 1);
+  };
+  const Reset = () => {
+    setCounter(0)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="counter">
+    <h1>counteure</h1>
+    <span className="counteure__output">{counter}</span>
+    <div className="btn_container">
+      <button className="control_bouton" onClick={Augmenter}>+</button>
+      <button className="reset" onClick={Reset}>Reset</button>
+      <button className="controle_bouton" onClick={Diminuer}>-</button>
     </div>
-  );
+  </div>
+  )
+
 }
 
-export default App;
+
